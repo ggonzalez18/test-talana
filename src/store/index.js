@@ -24,7 +24,7 @@ export default new Vuex.Store({
     actions: {
         getProducts({ commit }) {
             Axios.get('http://sva.talana.com:8000/api/product/').then((response) => {
-                commit('SET_PRODUCTS', response)
+                commit('SET_PRODUCTS', response.data)
             })
         }
     },
