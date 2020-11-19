@@ -1,12 +1,13 @@
 <template>
   <v-row justify="space-around">
 
-    <v-menu :rounded="rounded" offset-y>
+    <v-menu offset-y>
       <template v-slot:activator="{ attrs, on }">
         <v-btn
-          color="orange"
+          color="deep-purple darken-3"
           class="white--text ma-5"
           v-bind="attrs"
+          large
           v-on="on"
         >
           Categorías
@@ -15,9 +16,9 @@
       </template>
 
       <v-list>
-        <v-list-item v-for="item in items" :key="item" link
-        >
-          <v-list-item-title v-text="item"></v-list-item-title>
+        <v-list-item v-for="item in itemsCategory" :key="item.id" link>
+          <v-list-item-icon></v-list-item-icon>
+          <v-list-item-title v-text="item.name"></v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -25,10 +26,16 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 export default {
  computed: {
-   ...mapState(['items'])
+   ...mapState(['itemsCategory'])
+ },
+ methods: {
+   ...mapActions(['getCategories'])
+ },
+ created() {
+   this.getCategories()
  }
 }
 </script>
