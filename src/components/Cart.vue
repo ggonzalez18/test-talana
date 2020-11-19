@@ -1,8 +1,6 @@
 <template>
-  <div><v-menu
-        left
-        bottom
-      >
+  <div>
+    <v-menu left bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             icon
