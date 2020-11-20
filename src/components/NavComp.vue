@@ -8,7 +8,7 @@
        <v-col cols="12" sm="6" md="3">
           <v-text-field
             class="mt-6"
-            label="Bucador de producto o categoría"
+            label="Buscador de producto o categoría"
             outlined
             append-icon="mdi-magnify"
           ></v-text-field>
