@@ -1,23 +1,23 @@
 <template>
 <div>
   <v-row>
-    <v-col cols="3" v-for="product in products" :key="product.id">
+    <v-col lg="3" sm="12" md="6" v-for="product in products" :key="product.id">
       <v-card class="mx-auto mr-5" max-width="380px">
-        <v-img :src="product.photo" height="250px" width="250px"></v-img>
+        <v-img :src="product.photo" height="350px" width="300px"></v-img>
 
-        <v-card-title>{{ product.name }}</v-card-title>
+        <v-card-title class="teal--text subtitle-1">{{ product.name }}</v-card-title>
 
         <v-card-subtitle>Precio: $ {{product.price}}</v-card-subtitle>
 
     <v-card-actions>
       <!-- <v-spacer></v-spacer> -->
       <span>
-        <v-btn small text>-</v-btn>
+        <v-btn text>-</v-btn>
         <v-text small>1</v-text>
         <v-btn text>+</v-btn>
 
       <v-btn icon @click.stop="dialog = true">
-        <v-icon color="deep-purple darken-3">mdi-cart</v-icon>
+        <v-icon color="purple darken-4">mdi-cart</v-icon>
       </v-btn>
       </span>
     </v-card-actions>

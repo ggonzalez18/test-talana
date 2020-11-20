@@ -1,10 +1,9 @@
 <template>
   <v-row justify="space-around">
-
     <v-menu offset-y>
       <template v-slot:activator="{ attrs, on }">
         <v-btn
-          color="deep-purple darken-3"
+          color="teal lighten-2"
           class="white--text ma-5"
           v-bind="attrs"
           large
@@ -17,8 +16,11 @@
 
       <v-list>
         <v-list-item v-for="item in itemsCategory" :key="item.id" link>
-          <v-list-item-icon></v-list-item-icon>
           <v-list-item-title v-text="item.name"></v-list-item-title>
+
+          <v-list-item-action>
+          <v-icon @click="filterByCategory(item)">mdi-arrow-right</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -32,7 +34,7 @@ export default {
    ...mapState(['itemsCategory'])
  },
  methods: {
-   ...mapActions(['getCategories'])
+   ...mapActions(['getCategories', 'filterByCategory'])
  },
  created() {
    this.getCategories()

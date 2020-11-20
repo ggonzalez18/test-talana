@@ -19,6 +19,17 @@ export default new Vuex.Store({
         },
         SET_CATEGORIES(state, payload) {
             state.itemsCategory = payload
+        },
+        FILTER_PRODUCT(state, payload) {
+            state.products = state.products.filter((product) => {
+                return product.name.toLowerCase().includes(payload.toLowerCase()) ||
+                    product.category.name.toLowerCase().includes(payload.toLowerCase())
+            })
+        },
+        FILTER_CATEGORY(state, payload) {
+            state.products = state.products.filter((product) => {
+                return product.category.id == payload.id
+            })
         }
     },
     actions: {
@@ -35,6 +46,12 @@ export default new Vuex.Store({
                 commit('SET_CATEGORIES', response.data)
             })
         },
+        filterBySearch({ commit }, payload) {
+            commit('FILTER_PRODUCT', payload)
+        },
+        filterByCategory({ commit }, payload) {
+            commit('FILTER_CATEGORY', payload)
+        }
     },
     modules: {}
 })
